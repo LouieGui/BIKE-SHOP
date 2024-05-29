@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="Collection.css" />
+    <title>Guiaya's Bike Shop</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="main-nav">
+        <img
+          src="https://img.icons8.com/stickers/100/electric-bike.png"
+          alt="electric-bike"
+          class="logo"
+        />
+
+        <ul class="main-menu">
+          <li><a href="Homepage.html">Home</a></li>
+          <li>
+            <a href="Collection.html">Collection</a>
+            <ul class="submenu">
+              <li><a href="#bike-accessories">Bike Accessories</a></li>
+              <li><a href="#bike-parts">Bike Parts</a></li>
+              <li><a href="#bike-tools">Bike Tools</a></li>
+              <li><a href="#bike-cleaning">Bike Cleaning Stuff</a></li>
+            </ul>
+          </li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+
+        <ul class="right-menu">
+          <div class="cartOpen">
+            <li>
+              <a href="#Cart">
+                <img
+                  src="https://img.icons8.com/ios-glyphs/30/shopping-cart--v1.png"
+                  alt="shopping-cart--v1"
+                />
+                <span class="quantity">0</span>
+              </a>
+            </li>
+          </div>
+
+          <li id="userAccount">
+            <a href="login.html">
+              <img
+                src="https://img.icons8.com/pastel-glyph/64/user-male-circle.png"
+                alt="user-male-circle"
+              />
+            </a>
+            <ul class="submenu" id="userSubmenu">
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="#" onclick="logout()">Sign Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Checkout POP -->
+<div class="checkoutBody" id="checkPop">
+  <div class="checkPop">
+    <div class="checkout-con">
+      <div class="checkout-header">
+        <p>Checkout</p>
+      </div>
+      <div class="mode-of-payment">
+        <p>RIDE SAFE</p>
+        <select name="mode-of-payment" id="mode-of-payment" >
+          <option value="" disabled selected>Mode of Payment</option>
+          <option value="Card">Card</option>
+          <option value="Gcash">Gcash</option>
+          <option value="Cash">Cash</option>
+        </select>
+      </div>
+
+      <!-- CARD -->
+      <div class="card" id="card">
+        <table>
+          <tr>
+            <td colspan="2">
+              <input type="number" placeholder="Card Number">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="text" placeholder="Name on Card">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="date" placeholder="Expiration">
+            </td>
+            <td>
+              <input type="number" maxlength="3" placeholder="CVV">
+            </td>
+          </tr>
+          <tr>
+            <td class="buttons">
+              <button id="checkoutButton" onclick="showSuccessMessage()">
+                Checkout
+              </button>
+            </td>
+            <td>
+              <button onclick="checkoutClose()">Cancel</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- GCASH -->
+      <div class="gcash" id="gcash">
+        <img src="ADD TO CART .png" alt="QR CODE">
+        <h2>Please Scan me Beybe</h2>
+        <table>
+          <tr>
+            <td class="buttons">
+              <button id="checkoutButton" onclick="showSuccessMessage()">
+                Checkout
+              </button>
+            </td>
+            <td>
+              <button onclick="checkoutClose()">Cancel</button>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+
+      <!-- CASH -->
+       <div class="checkout-form" id="checkoutForm">
+            <table>
+              <tr>
+                <td colspan="2">
+                  <input type="text" placeholder="Name" />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <input type="text" placeholder="Address" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="text" placeholder="Email" />
+                </td>
+                <td>
+                  <input type="text" placeholder="Phone" />
+                </td>
+              </tr>
+              <tr>
+                <td class="buttons">
+                  <button id="checkoutButton" onclick="showSuccessMessage()">
+                    Checkout
+                  </button>
+                </td>
+                <td>
+                  <button onclick="checkoutClose()">Cancel</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="checkout-successfully" id="successMessage">
+            <div class="card">
+              <div
+                style="
+                  border-radius: 200px;
+                  height: 200px;
+                  width: 200px;
+                  background: #f8faf5;
+                  margin: 0 auto;
+                "
+              >
+                <i class="checkmark">✓</i>
+              </div>
+              <h1>Success</h1>
+              <p>
+                We received your purchase request;<br />
+                we'll be in touch shortly!
+              </p>
+              <button onclick="closeSuccessMessage()">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Container -->
+    <div class="cartTab">
+      <h1>SHOPPING LIST</h1>
+      <div class="listCart">
+        <div class="productGet">
+          <!-- Product Display -->
+        </div>
+      </div>
+      <button class="checkout" onclick="checkoutOpen()">
+        <p>PHP <span class="totalPrice" id="totalPrice">000.00</span></p>
+      </button>
+    </div>
+
+    <!-- Side Navigator -->
+    <div class="content-area">
+      <aside>
+        <nav>
+          <ul>
+            <li><a href="#bike-accessories">Bike Accesories</a></li>
+            <li><a href="#bike-parts">Bike Parts</a></li>
+            <li><a href="#bike-tools">Bike Tools</a></li>
+            <li><a href="#bike-cleaning">Bike Cleaning Stuff</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Product Itself -->
+      <link rel="stylesheet" href="Product.css" />
+
+      <section class="product">
+        <!-- Bike Accesories -->
+        <section class="bike-accessories" id="bike-accessories">
+          <div class="product-con">
+            <div class="product-card">
+              <div class="badge">Hot</div>
+              <div class="product-tumb">
+                <img src="imgPsGiroHelmet.png" alt="Giro Helmet" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Accesories</span>
+                <h4 class="product-title"><a href="">Giro Helmet</a></h4>
+                <p>
+                  Protects your head in case of a crash. Choose one that fits
+                  snugly and is certified by a safety organization.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price"><small>PHP 300</small>PHP 100</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Giro Helmet', 'imgPsGiroHelmet.png', 100)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="badge">Hot</div>
+              <div class="product-tumb">
+                <img src="imgPsRynoxTailBag.png" alt="Rynox Tail Bag" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Accesories</span>
+                <h4 class="product-title"><a href="">Rynox Tail Bag</a></h4>
+                <p>
+                  A tail bag, also known as a saddle bag or seat bag, is a
+                  versatile storage option that attaches to the back of your
+                  bike seat.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price"><small>PHP 500</small>PHP 399</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Rynox Tail Bag', 'imgPsRynoxTailBag.png', 399)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="product-tumb">
+                <img src="imgBA3.png" alt="Schwinn Headlight" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Accesories</span>
+                <h4 class="product-title"><a href="">Schwinn Headlight</a></h4>
+                <p>
+                  Improves your visibility on the road, especially during
+                  low-light conditions. Front lights help you see where you're
+                  going, while rear lights make you visible to motorists behind
+                  you.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">PHP 150</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Schwinn Headlight', 'imgBA3.png', 150)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="product-tumb">
+                <img src="imgBA4.webp" alt="Bike Lock" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Accesories</span>
+                <h4 class="product-title"><a href="">Combination Lock</a></h4>
+                <p>
+                  Deters theft. U-locks are a popular option because they're
+                  difficult to cut. Cable locks are lighter and more portable,
+                  but they're not as secure.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">PHP 250</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Combination Lock', 'imgBA4.webp', 250)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="product-tumb">
+                <img src="imgBA5.jpg" alt="Water Bottle" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Accesories</span>
+                <h4 class="product-title">
+                  <a href="">ROCKBROS Water Bottler</a>
+                </h4>
+                <p>Cyclist's essential hydration companion.</p>
+                <div class="product-bottom-details">
+                  <div class="product-price">PHP 500</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('ROCKBROS Water Bottler', 'imgBA5.jpg', 500)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="product-tumb">
+                <img src="imgBA6.webp" alt="Bottle Cage" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Accesories</span>
+                <h4 class="product-title">
+                  <a href="#">ROCKBROS Water Bottler Cage</a>
+                </h4>
+                <p>
+                  A water bottle cage is a storage container for your water
+                  bottle. It's a great way to keep your water bottle dry and
+                  organized.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">PHP 450</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('ROCKBROS Water Bottler Cage', 'imgBA6.webp', 450)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="product-tumb">
+                <img src="imgBA7.jpg" alt="Ragusa Fender" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Accesories</span>
+                <h4 class="product-title">
+                  <a href="">Ragusa Fender</a>
+                </h4>
+                <p>
+                  Protects you from getting sprayed with water and mud.
+                  Especially useful for riding in wet conditions.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">PHP 500</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Ragusa Fender', 'imgBA7.jpg', 500)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="product-tumb">
+                <img src="imgBA8.jpg" alt="Bell" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Accesories</span>
+                <h4 class="product-title">
+                  <a href="">Bell</a>
+                </h4>
+                <p>
+                  A way to alert pedestrians and other cyclists of your
+                  presence.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">PHP 50</div>
+                  <div class="product-links">
+                    <a href="#" class="addCart" onclick="addToCart('Bell', 'imgBA8.jpg', 50)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <!-- Bike Parts -->
+        <section class="bike-parts" id="bike-parts">
+          <div class="product-con">
+            <div class="product-card">
+              <div class="badge">Hot</div>
+              <div class="product-tumb">
+                <img src="imgPsBmcFrame.png" alt="BMC Frame" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Parts</span>
+                <h4 class="product-title"><a href="">BMC Frame</a></h4>
+                <p>
+                  The foundation of the bike, holding all the other components
+                  together. Frames are typically made from steel, aluminum,
+                  carbon fiber, or titanium, each with its own advantages and
+                  disadvantages.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">
+                    <small>PHP 15,000</small>PHP 10,000
+                  </div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('BMC Frame', 'imgPsBmcFrame.png', 10000)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="badge">Hot</div>
+              <div class="product-tumb">
+                <img src="imgPsShinanoCogs.png" alt="Shinano Cogs" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Parts</span>
+                <h4 class="product-title"><a href="">Shinanno Cogs</a></h4>
+                <p>
+                  A set of sprockets on the rear wheel that provides different
+                  gear ratios. More sprockets offer a wider range of gears for
+                  tackling hills and varying terrain.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">
+                    <small>PHP 4,000</small>PHP 3,500
+                  </div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Shinanno Cogs', 'imgPsShinanoCogs.png', 3500)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="badge">Hot</div>
+              <div class="product-tumb">
+                <img src="imgBP3.jpg" alt="Dura-Ace TT" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Parts</span>
+                <h4 class="product-title"><a href="">Dura-Ace TT</a></h4>
+                <p>
+                  The gear(s) at the front of the bike that the chain connects
+                  to. Chainrings with more teeth provide a higher gear ratio for
+                  faster riding on flat terrain.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">PHP 5,000</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Dura-Ace TT', 'imgBP3.jpg', 5000)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="badge">Hot</div>
+              <div class="product-tumb">
+                <img src="imgBP4.jpg" alt="Tosseek Rigid Fork" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Parts</span>
+                <h4 class="product-title"><a href="">Tosseek Rigid Fork</a></h4>
+                <p>
+                  Highlights the benefits of less weight and fewer moving parts.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">PHP 3,050</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Tosseek Rigid Fork', 'imgBP4.jpg', 3050)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <!-- Bike Tools -->
+        <section class="bike-tools" id="bike-tools">
+          <div class="product-con">
+            <div class="product-card">
+              <div class="product-tumb">
+                <img src="imgTireLever.jpg" alt="Tire Leveaars" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Tools</span>
+                <h4 class="product-title"><a href="">Tire Levers</a></h4>
+                <p>These pry a tight tire off the rim to fix a flat tire.</p>
+                <div class="product-bottom-details">
+                  <div class="product-price"><small>PHP 300</small>PHP 100</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Tire Levers', 'imgTireLever.jpg', 100)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="badge">Hot</div>
+              <div class="product-tumb">
+                <img src="imgPsAllenKey.png" alt="Allen Key" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Tools</span>
+                <h4 class="product-title"><a href="">Allen Key</a></h4>
+                <p>
+                  Also known as hex keys, these L-shaped tools are used for a
+                  variety of adjustments on your bike, like tightening
+                  handlebars, brakes, and derailleurs.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price"><small>PHP 299</small>PHP 50</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Allen Key', 'imgPsAllenKey.png', 50)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="product-tumb">
+                <img src="imgBT3.jpg" alt="Chain Cutter" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Tools</span>
+                <h4 class="product-title"><a href="">Chain Cutter</a></h4>
+                <p>
+                  A chain tool allows you to remove and replace links in your
+                  bike chain for repairs or cleaning.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">PHP 150</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Chain Cutter', 'imgBT3.jpg', 150)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="product-tumb">
+                <img src="imgBT4.webp" alt="Tire Patch Kit" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Tools</span>
+                <h4 class="product-title"><a href="">Tire Patch Kit</a></h4>
+                <p>
+                  Tire patches can be used to repair small punctures in your
+                  tubes.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">PHP 150</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Tire Patch Kit', 'imgBT4.webp', 150)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <!-- Bike Cleaning -->
+        <section class="bike-cleaning" id="bike-cleaning">
+          <div class="product-con">
+            <div class="product-card">
+              <div class="product-tumb">
+                <img src="imgBC1.webp" alt="Chain Scrubber" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Tools</span>
+                <h4 class="product-title"><a href="">Chain Scrubber</a></h4>
+                <p>
+                  A chain tool that cleans the chain by scrubbing the surface of
+                  the chain.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">PHP 100</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Chain Scrubber', 'imgBC1.webp', 100)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="product-tumb">
+                <img src="imgBC2.jpg" alt="Chain Cleaner" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Tools</span>
+                <h4 class="product-title"><a href="">Chain Cleaner</a></h4>
+                <p>
+                  A chain tool that cleans the chain by scrubbing the surface of
+                  the chain.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price"><small>PHP 299</small>PHP 200</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Chain Cleaner', 'imgBC2.jpg', 200)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="badge">Hot</div>
+              <div class="product-tumb">
+                <img src="imgBC3.jpg" alt="Bike Shampoo" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Tools</span>
+                <h4 class="product-title"><a href="">Bike Shampoo</a></h4>
+                <p>
+                  Bike shampoo designed to effectively clean and protect your
+                  bike's finish.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">PHP 600</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Bike Shampoo', 'imgBC3.jpg', 600)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-con">
+            <div class="product-card">
+              <div class="product-tumb">
+                <img src="imgBC4.jpg" alt="Water Hose" />
+              </div>
+              <div class="product-details">
+                <span class="product-catagory">Bike Tools</span>
+                <h4 class="product-title"><a href="">Water Hose</a></h4>
+                <p>
+                  A water hose is a tool that allows you to clean the water
+                  inside your bike. tubes.
+                </p>
+                <div class="product-bottom-details">
+                  <div class="product-price">PHP 250</div>
+                  <div class="product-links">
+                    <a
+                      href="#"
+                      class="addCart"
+                      onclick="addToCart('Water Hose', 'imgBC4.jpg', 250)"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <script src="Collection.js"></script>
+  </body>
+</html>

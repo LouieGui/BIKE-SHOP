@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Contact.css">
+    <title>Guiaya's Bike Shop</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+          <img
+            src="https://img.icons8.com/stickers/100/electric-bike.png"
+            alt="electric-bike"
+            class="logo"
+          />
+  
+          <ul class="main-menu">
+            <li><a href="Homepage.html">Home</a></li>
+            <li>
+              <a href="Collection.html">Collection</a>
+              <ul class="submenu">
+                <li><a href="Collection.html#bike-accessories">Bike Accessories</a></li>
+                <li><a href="Collection.html#bike-parts">Bike Parts</a></li>
+                <li><a href="Collection.html#bike-tools">Bike Tools</a></li>
+                  <li><a href="#bike-cleaning">Bike Cleaning Stuff</a></li>
+              </ul>
+            </li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+          </ul>
+  
+          <ul class="right-menu">
+            <li id="userAccount">
+              <a href="login.html">
+                <img
+                  src="https://img.icons8.com/pastel-glyph/64/user-male-circle.png"
+                  alt="user-male-circle"
+                />
+              </a>
+              <ul class="submenu" id="userSubmenu">
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="#" onclick="logout()">Sign Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <section>
+        <section class="contact-con">
+            <div class="contact-list">
+                <h1>GUIAYA'S BIKE SHOP</h1>
+                <h4>Salandanan Tabitabi Buhatan, Sisig, Itlog Manila</h4>
+                <h4>Phone: 09123456789</h4>
+                <h4>Fax: 09123456789</h4>
+                <h4>Email: guiayasbikeshop@gmail.com</h4>
+                <h4>Web: www.guiayasbikeshop.com</h4>
+                <h2>Warehouse</h2>
+                <h4>Bahay ni ateng taga PLP</h4>
+            </div>
+            <div class="contact-form">
+                <form action="mailto:guiayasbikeshop@gmail.com">
+                    <h1>Contact Us Form</h1>
+                    <p>Please feel free to contact us if you have any comments.</p>
+                    
+                    <div class="form-group full-width">
+                        <!-- <label for="name">Name</label> -->
+                        <input type="text" id="name" name="name" placeholder="Name">
+                    </div>
+                    
+                    <div class="form-group half-width">
+                        <!-- <label for="email">Email</label> -->
+                        <input type="text" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group half-width">
+                        <!-- <label for="phone">Phone</label> -->
+                        <input type="text" id="phone" name="phone" placeholder="Phone">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <!-- <label for="title">Title</label> -->
+                        <input type="text" id="title" name="title" placeholder="Subject">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <!-- <label for="message">Message</label> -->
+                        <textarea id="message" name="message" cols="30" rows="10" placeholder="Message..."></textarea>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+          </section>
+      </section>
+
+      <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+          <h2>Guiaya's Bike Shop</h2>
+          <h4 class="tagline">
+            Pedal through the digital marketplace and ignite your passion for
+            <br />
+            cycling with every purchase.
+          </h4>
+          <div class="contact-icon">
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png"
+              alt="facebook-new"
+              style="filter: invert(100%)"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-filled/50/000000/instagram.png"
+              alt="instagram"
+              style="filter: invert(100%)"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-filled/50/000000/gmail.png"
+              alt="gmail"
+              style="filter: invert(100%)"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-filled/50/000000/github.png"
+              alt="github"
+              style="filter: invert(100%)"
+            />
+          </div>
+          <p>&copy; 2024 Guiaya's Bike Shop. All rights reserved.</p>
+        </div>
+      </footer>
+</body>
+</html>

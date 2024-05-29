@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guiaya's Bike Shop</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Homepage.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="main-nav">
+        <img
+          src="https://img.icons8.com/stickers/100/electric-bike.png"
+          alt="electric-bike"
+          class="logo"
+        />
+
+        <ul class="main-menu">
+          <li><a href="Homepage.html">Home</a></li>
+          <li>
+            <a href="Collection.html">Collection</a>
+            <ul class="submenu">
+              <li>
+                <a href="Collection.html#bike-accessories">Bike Accessories</a>
+              </li>
+              <li><a href="Collection.html#bike-parts">Bike Parts</a></li>
+              <li><a href="Collection.html#bike-tools">Bike Tools</a></li>
+              <li><a href="Collection.html#bike-cleaning">Bike Cleaning Stuff</a></li>
+            </ul>
+          </li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+
+        <ul class="right-menu">
+<!--           <li>
+            <a href="cart.html">
+              <img
+                src="https://img.icons8.com/ios-glyphs/30/shopping-cart--v1.png"
+                alt="shopping-cart--v1"
+              />
+            </a>
+          </li> -->
+          <li id="userAccount">
+            <a href="login.html">
+              <img
+                src="https://img.icons8.com/pastel-glyph/64/user-male-circle.png"
+                alt="user-male-circle"
+              />
+            </a>
+            <ul class="submenu" id="userSubmenu">
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="#" onclick="logout()">Sign Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Header -->
+    <div class="content">
+      <header class="showcase">
+        <h1>Welcome to Guiaya's Bike Shop</h1>
+        <h1>Feel the Road, Fuel the Soul.</h1>
+        <p>Your one-stop solution for all your bike needs</p>
+        <a href="Collection.html">
+          <button>
+            Shop Now
+            <div class="arrow-wrapper">
+              <div class="arrow"></div>
+            </div>
+          </button>
+        </a>
+      </header>
+
+      <section class="feature-section">
+        <div class="feature-con">
+          <h1>Online bike shopping is made easy</h1>
+          <p>
+            Shop online with Guiaya's Bike Shop. We offer a wide range of bikes
+            and accessories for you to choose from. Our website is user-friendly
+            and easy to navigate, making it a great place for your shopping
+            needs.
+          </p>
+        </div>
+        <div class="feature-subcon">
+          <div class="feature-subclass">
+            <img
+              src="https://img.icons8.com/ios/50/open-end-wrench.png"
+              alt="open-end-wrench"
+            />
+            <h1>Professional Assembly</h1>
+            <p>
+              Upon arrival, your bike will be assembled by certified bicycle
+              technicians and made ready to pick up or deliver to your home.
+            </p>
+          </div>
+
+          <div class="feature-subclass">
+            <img
+              src="https://img.icons8.com/sf-black/64/return-purchase.png"
+              alt="return-purchase"
+            />
+            <h1>30 day no hassle returns</h1>
+            <p>
+              If you're not in love with your bike upgrades within the first
+              thirty days, we will take it back without any additional charges
+              or hassle.
+            </p>
+          </div>
+
+          <div class="feature-subclass">
+            <img
+              src="https://img.icons8.com/ios/50/shop--v1.png"
+              alt="shop--v1"
+            />
+            <h1>Local Service and Suport</h1>
+            <p>
+              Your local bike shop has the knowledge, products, and expertise to
+              help you get the most out of your new bike.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Event Poster -->
+      <section class="race-poster">
+        <div class="img-con">
+          <img src="imgRacePoster.png" alt="Fun Race" />
+          <a href="#">
+            <button>
+              Register
+              <div class="arrow-wrapper">
+                <div class="arrow"></div>
+              </div>
+            </button>
+          </a>
+        </div>
+      </section>
+
+      <!-- Shop Review -->
+      <section class="shop-review">
+        <div class="review-con">
+          <div class="review-header">
+            <h1>Gwapito</h1>
+            <span class="hint-star star">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+          <p>
+            "I have been using this bike shop for over 5 years now and have been
+            consistently satisfied with their service and products. They always
+            deliver on time and meet my expectations. I would highly recommend
+            them for your bike needs."
+          </p>
+        </div>
+
+        <div class="review-con">
+          <div class="review-header">
+            <h1>Aleng Bebang</h1>
+            <span class="hint-star star">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+          <p>
+            "Having been a customer at this bike shop for over 5 years, I've
+            found their service and products to be very good. They consistently
+            deliver on time and meet my expectations. I highly recommend them
+            for your biking needs."
+          </p>
+        </div>
+
+        <div class="review-con">
+          <div class="review-header">
+            <h1>Mr Swabe</h1>
+            <span class="hint-star star">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+          <p>
+            "For over 5 years, I have relied on this bike shop for all my
+            cycling needs. Their service is impeccable, and their products are
+            top-notch. They consistently exceed my expectations with timely
+            deliveries. I wholeheartedly endorse them for anyone looking for
+            outstanding bike services."
+          </p>
+        </div>
+
+        <div class="review-con">
+          <div class="review-header">
+            <h1>Gagamboy</h1>
+            <span class="hint-star star">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+          <p>
+            "For the past 5 years, I've been a loyal customer of this bike shop,
+            consistently impressed by their reliable service and high-quality
+            products. They never fail to deliver on time and always live up to
+            my expectations. I strongly recommend them for anyone in need of
+            excellent bike services."
+          </p>
+        </div>
+
+        <div class="review-con">
+          <div class="review-header">
+            <h1>White Flower</h1>
+            <span class="hint-star star">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+          <p>
+            "This bike shop has a decent selection and fair prices. While the
+            service can be hit or miss, they generally have what I need for
+            routine maintenance. It's not perfect, but it's a reliable enough
+            place for basic biking needs."
+          </p>
+        </div>
+      </section>
+
+      <!-- Product Showcase -->
+      <section class="product">
+        <h1>HOT DEALS</h1>
+        <div class="imgButton">
+          <button class="photo-btn" data-photo="photo1"></button>
+          <button class="photo-btn" data-photo="photo2"></button>
+          <button class="photo-btn" data-photo="photo3"></button>
+          <button class="photo-btn" data-photo="photo4"></button>
+          <button class="photo-btn" data-photo="photo5"></button>
+        </div>
+        <div class="product-showcase">
+          <img id="showcaseImage" src="imgPsAllenKey.png" alt="Product Image" />
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <h2>Guiaya's Bike Shop</h2>
+        <h4 class="tagline">
+          Pedal through the digital marketplace and ignite your passion for
+          <br />
+          cycling with every purchase.
+        </h4>
+        <div class="contact-icon">
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png"
+            alt="facebook-new"
+            style="filter: invert(100%)"
+          />
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/ios-filled/50/000000/instagram.png"
+            alt="instagram"
+            style="filter: invert(100%)"
+          />
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/ios-filled/50/000000/gmail.png"
+            alt="gmail"
+            style="filter: invert(100%)"
+          />
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/ios-filled/50/000000/github.png"
+            alt="github"
+            style="filter: invert(100%)"
+          />
+        </div>
+        <p>&copy; 2024 Guiaya's Bike Shop. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="Hompage.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,327 @@
+/* Global Styles */
+* {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f5f5f5;
+    color: #000;
+    font-size: 15px;
+    line-height: 1.5;
+    padding-top: 60px; 
+}
+
+a {
+    color: #262626;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Container */
+.container {
+    width: 100%; 
+    margin: auto;
+    padding: 0;
+}
+
+/* Navigation */
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    height: 60px;
+    padding: 0 30px; 
+    width: 100%; 
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 1000; 
+}
+
+.main-nav .logo {
+    flex-shrink: 0; 
+    width: auto;
+    max-width: 100px;
+    height: 40px;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: auto; 
+    padding: 0;
+}
+
+.main-nav ul li {
+    padding: 0 10px;
+    position: relative;
+}
+
+.main-nav ul li a {
+    padding-bottom: 2px;
+}
+
+.main-nav ul li:hover > a {
+    border-bottom: 2px solid #262626;
+}
+
+.main-nav ul.main-menu {
+    flex-grow: 1; 
+    margin-left: 20px;
+    justify-content: flex-start; 
+}
+
+/* Submenu */
+.main-nav ul ul.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgb(110, 110, 110);
+    border-radius: 5px;
+    font-size: 15px;
+    width: 200px;
+    display: none;
+    z-index: 1000;
+    transform: translateY(5px); 
+}
+
+.main-nav ul ul.submenu li {
+    padding: 10px 15px;
+}
+
+.main-nav ul ul.submenu li a {
+    color: rgb(255, 255, 255);
+    border-bottom: 2px solid transparent;
+    display: block;
+}
+
+.main-nav ul ul.submenu li a:hover {
+    color: #3ca0e7;
+    border-bottom: 2px solid #3ca0e7;
+}
+
+.main-nav ul li:hover > ul.submenu {
+    display: block;
+}
+
+.main-nav ul li.active > a {
+    border-bottom: 2px solid #000;
+}
+
+.main-nav ul li.active > ul.submenu {
+    display: block;
+    border-bottom: 2px solid #000;
+}
+
+.right-menu {
+    flex-shrink: 0; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+}
+
+.right-menu img {
+    height: auto;
+    width: 20px;
+}
+
+body > section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    overflow: hidden; /* Ensures the pseudo-element does not exceed the container */
+}
+
+body > section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(imgContactBg.jpg);
+    background-repeat: repeat;
+    opacity: 0.3; /* 80% opacity */
+    z-index: -1; /* Ensures the background is behind the content */
+}
+
+/* Contact Section */
+.contact-con {
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    flex-direction: row;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    height: 80%;
+    width: 80%;
+    background-color: lightgray;
+    border-radius: 10px;
+    margin: auto;
+    padding: 20px;
+}
+
+.contact-list {
+    background-color: #013062; /* A nice shade of blue */
+    color: white; /* White text for better contrast */
+    padding: 20px; /* Padding around the content */
+    margin-right: 20px; /* Margin around the div */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-list h1, .contact-list h2, .contact-list h4 {
+    margin-bottom: 10px; /* Space between headings */
+}
+
+.contact-list h1 {
+    font-size: 30px; /* Larger font size for main heading */
+    margin: 20px 0;
+    text-align: center;
+}
+
+.contact-list h2 {
+    font-size: 20px; /* Slightly smaller font size for secondary heading */
+    margin: 20px 0;
+}
+
+.contact-list h4 {
+    font-size: 15px; /* Smaller font size for details */
+    margin: 10px 0;
+}
+
+.contact-form {
+    width: 50%;
+    padding: 20px;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.contact-form h1 {
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+}
+
+.contact-form p {
+    color: #666;
+    font-size: 14px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.half-width {
+    width: 48%; /* Adjusted width to fit in half */
+    display: inline-block; /* Allows inline positioning */
+}
+
+.form-group.half-width:first-child {
+    margin-right: 4%; /* Margin to separate the two half-width groups */
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contact-form input[type="text"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical; /* Allows vertical resizing only */
+}
+
+.contact-form input[type="submit"] {
+    background-color: #245abf;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #1e4fa1;
+}
+
+@media (max-width: 768px) {
+    .contact-con {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .contact-list,
+    .contact-form {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .form-group.half-width {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #202a36;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;  
+}
+
+.footer-content {
+    text-align: center; 
+    width: 100%; 
+}
+
+.footer-content h2, .footer-content h4, .footer-content p {
+    margin: 0 auto; 
+    padding: 10px 0; 
+}
+
+.contact-icon {
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+}
+
+.contact-icon img:hover {
+    transform: scale(1.5);
+}
